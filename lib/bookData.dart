@@ -6,7 +6,7 @@ List bookData = [
     'Suzy Menkes ',
     46.99,
     1.5,
-    'A spectacular visual journey through 40 years of haute couture from one of the best-known and most trend-setting brands in fashion.'
+    'A spectacular visual journey through 40 years of haute couture from one of the best-known and most trend-setting brands in fashion.A spectacular visual journey through 40 years of haute couture from one of the best-known and most trend-setting brands in fashion.'
   ],
   [
     'assets/images/image 17.png',

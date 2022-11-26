@@ -67,7 +67,6 @@ class Home extends StatelessWidget {
                                     bookID: index,
                                   )),
                         );
-                        print(index);
                       },
                       child: BookTile(
                         bookImagePath: bookData[index][0],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_task2/customeFont.dart';
-
+import 'package:fluttericon/font_awesome_icons.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:iconsax/iconsax.dart';
 import 'bookData.dart';
 
 class BookDetails extends StatelessWidget {
@@ -33,20 +35,22 @@ class BookDetails extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(
-                height: 39,
+                height: 29,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 216,
-                    height: 320,
-                    child: Image.asset(
-                      bookData[bookID][0],
-                      fit: BoxFit.fill,
+              SizedBox(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 216,
+                      height: 320,
+                      child: Image.asset(
+                        bookData[bookID][0],
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 22,
@@ -83,15 +87,37 @@ class BookDetails extends StatelessWidget {
                     itemSize: 20,
                     itemPadding: const EdgeInsets.only(left: 4),
                   ),
-                  Text("  ${bookData[bookID][4]} / 5.0")
+                  Text(
+                    "  ${bookData[bookID][4]}",
+                    style: customGoogleFont(
+                        fontSize: 14, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "/ 5.0",
+                    style: customGoogleFont(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(0xFF828285)),
+                  ),
                 ],
               ),
               const SizedBox(
                 height: 16,
               ),
-              SingleChildScrollView(child: Text(" ${bookData[bookID][5]}")),
+              Expanded(
+                flex: 1,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical, //.horizontal
+                  child: Text(" ${bookData[bookID][5]}",
+                      style: customGoogleFont(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.black87)),
+                ),
+              ),
+              // SingleChildScrollView(child: Text(" ${bookData[bookID][5]}")),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
                     width: 154,
@@ -127,14 +153,13 @@ class BookDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(
-                          onPressed: () {},
-                          icon: const Icon(Icons.chat_outlined),
-                        ),
+                            onPressed: () {},
+                            icon: const Icon(Iconsax.message)),
                         const SizedBox(
                           width: 8,
                         ),
                         Text(
-                          "Review",
+                          "Reviews",
                           style: customGoogleFont(
                               fontSize: 14, fontWeight: FontWeight.w500),
                         )
@@ -143,25 +168,26 @@ class BookDetails extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(
-                width: 8,
-              ),
-              TextButton(
-                onPressed: () {},
-                child: Container(
-                  width: 319,
-                  height: 60,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.black,
-                  ),
-                  child: Center(
-                    child: Text(
-                      " Buy Now for \$ ${bookData[bookID][3]}",
-                      style: customGoogleFont(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white),
+
+              Expanded(
+                flex: 2,
+                child: TextButton(
+                  onPressed: () {},
+                  child: Container(
+                    width: 319,
+                    height: 60,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.black,
+                    ),
+                    child: Center(
+                      child: Text(
+                        " Buy Now for \$ ${bookData[bookID][3]}",
+                        style: customGoogleFont(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
