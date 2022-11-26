@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_task2/book_details.dart';
 
 import 'bookData.dart';
 import 'bookListTile.dart';
@@ -25,11 +26,12 @@ class Home extends StatelessWidget {
         leading: Image.asset('assets/images/Rectangle 14.png'),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.more_vert,
-                color: Color(0xFF000000),
-              ))
+            onPressed: () {},
+            icon: const Icon(
+              Icons.more_vert,
+              color: Color(0xFF000000),
+            ),
+          ),
         ],
       ),
       body: Padding(
@@ -56,12 +58,24 @@ class Home extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                   itemBuilder: (context, index) {
-                    return BookTile(
-                      bookImagePath: bookData[index][0],
-                      bookName: bookData[index][1],
-                      bookAuthor: bookData[index][2],
-                      bookPrice: bookData[index][3],
-                      bookRate: bookData[index][4],
+                    return InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BookDetails(
+                                    bookID: index,
+                                  )),
+                        );
+                        print(index);
+                      },
+                      child: BookTile(
+                        bookImagePath: bookData[index][0],
+                        bookName: bookData[index][1],
+                        bookAuthor: bookData[index][2],
+                        bookPrice: bookData[index][3],
+                        bookRate: bookData[index][4],
+                      ),
                     );
                   },
                   itemCount: bookData.length,
@@ -75,33 +89,3 @@ class Home extends StatelessWidget {
     );
   }
 }
-
-// [
-// Row(
-// children: [
-// Expanded(
-// flex: 1,
-// child: Container(
-// height: 150,
-// color: Colors.blueGrey,
-// // child: const Text("dd"),
-// ),
-// ),
-// ],
-// ),
-// SizedBox(
-// height: 10,
-// ),
-// Row(
-// children: [
-// Expanded(
-// flex: 1,
-// child: Container(
-// height: 150,
-// color: Colors.blueGrey,
-// // child: const Text("dd"),
-// ),
-// ),
-// ],
-// )
-// ],

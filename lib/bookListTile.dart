@@ -61,20 +61,31 @@ class BookTile extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            RatingBar.builder(
-              initialRating: bookRate,
-              minRating: 1,
-              direction: Axis.horizontal,
-              allowHalfRating: true,
-              itemCount: 5,
-              itemSize: 20,
-              itemPadding: const EdgeInsets.only(right: 4),
+            // RatingBar.builder(
+            //   initialRating: bookRate,
+            //   minRating: 1,
+            //   direction: Axis.horizontal,
+            //   allowHalfRating: true,
+            //   itemCount: 5,
+            //   itemSize: 20,
+            //   itemPadding: const EdgeInsets.only(right: 4),
+            //   itemBuilder: (context, _) => const Icon(
+            //     Icons.star,
+            //     color: Colors.amber,
+            //   ),
+            //   onRatingUpdate: (rating) {},
+            // ),
+            RatingBarIndicator(
               itemBuilder: (context, _) => const Icon(
                 Icons.star,
                 color: Colors.amber,
               ),
-              onRatingUpdate: (rating) {},
-            )
+              rating: bookRate,
+              direction: Axis.horizontal,
+              itemCount: 5,
+              itemSize: 20,
+              itemPadding: const EdgeInsets.only(left: 4),
+            ),
             // stars()
           ],
         )
